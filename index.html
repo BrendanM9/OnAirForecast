@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Oregon Forecast Hub</title>
+        <link rel="icon" type="image/x-icon" href="OregonForecastHub.png">
+        <link href="https://fonts.googleapis.com/css?family=Kalam" rel="stylesheet"> 
+        <!--<style> body { font-family: "Kalam";font-size: 22px; } </style> -->
+        <style> body {font-family: Copperplate, "Copperplate Gothic Light", fantasy; color: white;}</style>
+    </head>
+    
+    <body>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" color="white">&times;</a>
+            <a href="index.html">Home</a>
+            <a href="radar.html">Radar Map</a>
+            <a href="traffic.html">Traffic</a>
+            <a href="roadcams.html">Traffic Cameras</a>
+            <a href="about.html">About Oregon Forecast Hub</a>
+        </div>
+        <span onclick="openNav()"><div class="menuIcon"></div><div class="menuIcon"></div><div class="menuIcon"></div></span>
+        
+        <style>
+            
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+}
+.alert.warning {background-color: #ff9800;}
+body{
+    background-size:100% 100%
+}
+            body {
+                background-image: url("backgrounds/mountainAI.png");
+                background-size:cover;
+            }
+            .sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  /* Position and style the close button (top right corner) */
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+.menuIcon {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+  }
+             #main {
+    transition: margin-left .5s;
+    padding: 20px;
+  }
+html, body{
+    height: 100%
+}
+        </style>
+        <div id="main">
+            <!--<div class="alert warning">
+            <span class="closebtn">&times</span>
+            <strong>Website Maintenence</strong>
+            <p>Be aware that we will be working on this website from 3/25/24 through 3/30/24. This is an attempt to make it more mobile friendly. During this time, the website may go down. This is planned, and we are sorry for any way this may inconvenience you. Thanks for your cooperation!</p>
+        </div>-->
+        <h1>Welcome to Oregon Forecast Hub!</h1>
+        <h3>Please select a location to continue.</h3>
+        <form action="forecast.html">
+            <select id="City" name="city" required>
+                <option></option>
+                <optgroup label="Benton County">
+                    <option value="corvallis" id="Corvallis">Corvallis</option>
+                </optgroup>
+                <optgroup label="Clackamas County">
+                    <option value="govtcamp" id="Govtcamp">Government Camp</option>
+                </optgroup>
+                <optgroup label="Crook County">
+                    <option value="prineville" id="Prineville">Prineville</option>
+                </optgroup>
+                <optgroup label="Deschutes County">
+                    <option value="bend" id="Bend">Bend</option>
+                    <option value="sisters" id="Sisters">Sisters</option>
+                    <option value="redmond" id="Redmond">Redmond</option>
+                    <option value="sunriver" id="Sunriver">Sunriver</option>
+                    <option value="lapine" id="La_Pine">La Pine</option>
+                </optgroup>
+                <optgroup label="Jefferson County">
+                    <option value="madras" id="Madras">Madras</option>
+                </optgroup>
+                <optgroup label="Lane County">
+                    <option value="eugene" id="Eugene">Eugene</option>
+                </optgroup>
+                <optgroup label="Marion County">
+                    <option value="salem" id="Salem">Salem</option>
+                </optgroup>
+                <optgroup label="Multnomah County">
+                    <option value="portland" id="Portland">Portland</option>
+                </optgroup>
+            </select>
+            <input type="submit" id="submit" value="View My Forecast">
+            <!--<button id="view">View My Forecast</button>-->
+        </form>
+        </div>
+        <script>
+            function openNav() {
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+                document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+            }
+
+        /* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+            function closeNav() {
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+                document.body.style.backgroundColor = "white";
+            }
+            //cityEl = document.getElementsByName("city")
+            //cityV = document.getElementById("City").value
+            //submitB = document.getElementById("submit")
+            //var load=function(){
+                //console.log(cityV)
+            //}
+            //submitB.addEventListener("click", load())
+        </script>
+    </body>
+</html>
