@@ -8,10 +8,20 @@
     <a href="index.html">Return Home</a>
     <h3>Today's WX Report</h3>
     <div id="today">
+    <div id="today2">
+    <div id="tomorrow">
+    <div id="tomorrow2">
+    <div id="threeDay">
+    <div id="threeDay2">  
     <script>
       function displayData(data){
         console.log(data.properties.periods[0].detailedForecast)
-        document.getElementById("today").innerHTML = data.properties.periods[0].detailedForecast
+        document.getElementById("today").innerHTML = data.properties.periods[0].name + data.properties.periods[0].detailedForecast
+        document.getElementById("today2").innerHTML = data.properties.periods[1].name + data.properties.periods[1].detailedForecast
+        document.getElementById("tomorrow").innerHTML = data.properties.periods[2].name + data.properties.periods[2].detailedForecast
+        document.getElementById("tomorrow2").innerHTML = data.properties.periods[3].name + data.properties.periods[3].detailedForecast
+        document.getElementById("threeDay").innerHTML = data.properties.periods[4].name + data.properties.periods[4].detailedForecast
+        document.getElementById("threeDay2").innerHTML = data.properties.periods[5].name + data.properties.periods[5].detailedForecast
       }
       function getData(){
         fetch("https://api.weather.gov/gridpoints/PDT/37,41/forecast?units=us")
