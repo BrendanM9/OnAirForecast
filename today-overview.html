@@ -5,7 +5,26 @@
     <title>Today's WX Report</title>
   </head>
   <body>
-    <a href="">Return Home</a>
+    <a href="index.html">Return Home</a>
     <h3>Today's WX Report</h3>
+    <div id="today">
+    <script>
+      function displayData(data){
+        document.getElementById("today").innerHTML = data
+      }
+      function getData(){
+        fetch("https://api.weather.gov/gridpoints/PDT/37,41/forecast?units=us")
+        .then(function(resp) {return resp.json()})
+        .then (function(data) {
+            displayData(data);
+        })
+        .catch(function(){
+          
+        });
+      }
+      window.onload = function(){
+        getData();
+      }
+    </script>
   </body>
 </html>
