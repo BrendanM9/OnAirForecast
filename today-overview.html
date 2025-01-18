@@ -10,7 +10,8 @@
     <div id="today">
     <script>
       function displayData(data){
-        document.getElementById("today").innerHTML = data.properties.periods[0]
+        console.log(data.properties.periods[0].detailedForecast)
+        document.getElementById("today").innerHTML = data.properties.periods[0].detailedForecast
       }
       function getData(){
         fetch("https://api.weather.gov/gridpoints/PDT/37,41/forecast?units=us")
