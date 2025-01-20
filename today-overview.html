@@ -28,13 +28,13 @@
         var bendTempCelsius = WX.features[0].properties.temperature.value
         var bendTempFahrenheit = parseFloat(bendTempCelsius) * 1.8;
         bendTempFahrenheit = bendTempFahrenheit + 32
-        document.getElementById("bend").innerHTML = "<strong>Bend: </strong>"+ bendTempFahrenheit
+        document.getElementById("bend").innerHTML = "<strong>Bend: </strong>"+ parseInt(bendTempFahrenheit)
       }
       function sistersWeather(WX){
         var sistersTempCelsius = WX.features[0].properties.temperature.value
         var sistersTempFahrenheit = parseFloat(sistersTempCelsius) * 1.8;
         sistersTempFahrenheit = sistersTempFahrenheit + 32
-        document.getElementById("sisters").innerHTML = "<strong>Sisters: </strong>"+ sistersTempFahrenheit
+        document.getElementById("sisters").innerHTML = "<strong>Sisters: </strong>"+ parseInt(sistersTempFahrenheit)
       }
       function displayData(data){
         console.log(data.properties.periods[0].detailedForecast)
