@@ -110,6 +110,11 @@
         .then (function(data) {
           prinevilleWeather(data)
         })
+        fetch("https://api.weather.gov/stations/KS33/observations")
+        .then(function(resp) {return resp.json()})
+        .then (function(data) {
+          madrasWeather(data)
+        })
       }
       window.onload = function(){
         getData();
