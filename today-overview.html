@@ -109,10 +109,10 @@
         .then (function(data) {
           madrasWeather(data)
         })
-        fetch(fetch('https://api.weather.com/v2/pws/observations/current?stationId=KORLAPIN72&format=json&units=e&apiKey=be3a60645b954897ba60645b95f89776')
+        fetch('https://api.weather.com/v2/pws/observations/current?stationId=KORLAPIN72&format=json&units=e&apiKey=be3a60645b954897ba60645b95f89776')
         .then(function(resp) {return resp.json()})
         .then (function(data) {
-          madrasWeather(data)
+          laPineWeather(data)
         })
       }
       window.onload = function(){
