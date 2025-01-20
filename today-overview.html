@@ -36,6 +36,42 @@
         sistersTempFahrenheit = sistersTempFahrenheit + 32
         document.getElementById("sisters").innerHTML = "<strong>Sisters: </strong>"+ parseInt(sistersTempFahrenheit)
       }
+      function redmondWeather(WX){
+        var redmondTempCelsius = WX.features[0].properties.temperature.value
+        var redmondTempFahrenheit = parseFloat(redmondTempCelsius) * 1.8;
+        redmondTempFahrenheit = redmondTempFahrenheit + 32
+        document.getElementById("redmond").innerHTML = "<strong>Redmond: </strong>"+ parseInt(redmondTempFahrenheit)
+      }
+      function prinevilleWeather(WX){
+        var prinevilleTempCelsius = WX.features[0].properties.temperature.value
+        var prinevilleTempFahrenheit = parseFloat(prinevilleTempCelsius) * 1.8;
+        prinevilleTempFahrenheit = prinevilleTempFahrenheit + 32
+        document.getElementById("prineville").innerHTML = "<strong>Prineville: </strong>"+ parseInt(prinevilleTempFahrenheit)
+      }
+      function madrasWeather(WX){
+        var madrasTempCelsius = WX.features[0].properties.temperature.value
+        var madrasTempFahrenheit = parseFloat(madrasTempCelsius) * 1.8;
+        madrasTempFahrenheit = madrasTempFahrenheit + 32
+        document.getElementById("madras").innerHTML = "<strong>Madras: </strong>"+ parseInt(madrasTempFahrenheit)
+      }
+      function warmSpringsWeather(WX){
+        var warmSpringTempCelsius = WX.features[0].properties.temperature.value
+        var warmSpringsTempFahrenheit = parseFloat(warmSpringsTempCelsius) * 1.8;
+        warmSpringsTempFahrenheit = warmSpringsTempFahrenheit + 32
+        document.getElementById("warm-springs").innerHTML = "<strong>Warm Springs: </strong>"+ parseInt(warmSpringsTempFahrenheit)
+      }
+      function laPineWeather(WX){
+        var laPineTempCelsius = WX.features[0].properties.temperature.value
+        var laPineTempFahrenheit = parseFloat(laPineTempCelsius) * 1.8;
+        laPineTempFahrenheit = laPineTempFahrenheit + 32
+        document.getElementById("la-pine").innerHTML = "<strong>La Pine: </strong>"+ parseInt(laPineTempFahrenheit)
+      }
+      function sunriverWeather(WX){
+        var sunriverTempCelsius = WX.features[0].properties.temperature.value
+        var sunriverTempFahrenheit = parseFloat(sunriverTempCelsius) * 1.8;
+        sunriverTempFahrenheit = sunriverTempFahrenheit + 32
+        document.getElementById("sunriver").innerHTML = "<strong>Sunriver: </strong>"+ parseInt(sunriverTempFahrenheit)
+      }
       function displayData(data){
         console.log(data.properties.periods[0].detailedForecast)
         document.getElementById("today").innerHTML = "<strong>"+data.properties.periods[0].name +"</strong>: "+ data.properties.periods[0].detailedForecast
@@ -63,6 +99,16 @@
         .then(function(resp) {return resp.json()})
         .then (function(data) {
           sistersWeather(data)
+        })
+        fetch("https://api.weather.gov/stations/KRDM/observations")
+        .then(function(resp) {return resp.json()})
+        .then (function(data) {
+          redmondWeather(data)
+        })
+        fetch("https://api.weather.gov/stations/KS39/observations")
+        .then(function(resp) {return resp.json()})
+        .then (function(data) {
+          redmondWeather(data)
         })
       }
       window.onload = function(){
