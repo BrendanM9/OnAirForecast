@@ -61,9 +61,9 @@
         document.getElementById("la-pine").innerHTML = "<strong>La Pine: </strong>"+ parseInt(laPineTempFahrenheit)
       }
       function sunriverWeather(WX){
-        var sunriverTempCelsius = WX.features[0].properties.temperature.value
-        var sunriverTempFahrenheit = parseFloat(sunriverTempCelsius) * 1.8;
-        sunriverTempFahrenheit = sunriverTempFahrenheit + 32
+        //var sunriverTempCelsius = WX.features[0].properties.temperature.value
+        var sunriverTempFahrenheit = WX.observations[0].imperial.temp;
+        //sunriverTempFahrenheit = sunriverTempFahrenheit + 32
         document.getElementById("sunriver").innerHTML = "<strong>Sunriver: </strong>"+ parseInt(sunriverTempFahrenheit)
       }
       function displayData(data){
@@ -113,6 +113,11 @@
         .then(function(resp) {return resp.json()})
         .then (function(data) {
           laPineWeather(data)
+        })
+        fetch('https://api.weather.com/v2/pws/observations/current?stationId=KORSUNRI22&format=json&units=e&apiKey=be3a60645b954897ba60645b95f89776')
+        .then(function(resp) {return resp.json()})
+        .then (function(data) {
+          sunriverWeather(data)
         })
       }
       window.onload = function(){
