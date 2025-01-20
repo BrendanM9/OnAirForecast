@@ -20,7 +20,6 @@
     <div id="redmond"></div>
     <div id="prineville"></div>
     <div id="madras"></div>
-    <div id="warm-springs"></div>
     <div id="la-pine"></div>
     <div id="sunriver"></div>
     <script>
@@ -54,16 +53,11 @@
         madrasTempFahrenheit = madrasTempFahrenheit + 32
         document.getElementById("madras").innerHTML = "<strong>Madras: </strong>"+ parseInt(madrasTempFahrenheit)
       }
-      function warmSpringsWeather(WX){
-        var warmSpringTempCelsius = WX.features[0].properties.temperature.value
-        var warmSpringsTempFahrenheit = parseFloat(warmSpringsTempCelsius) * 1.8;
-        warmSpringsTempFahrenheit = warmSpringsTempFahrenheit + 32
-        document.getElementById("warm-springs").innerHTML = "<strong>Warm Springs: </strong>"+ parseInt(warmSpringsTempFahrenheit)
-      }
+      
       function laPineWeather(WX){
-        var laPineTempCelsius = WX.features[0].properties.temperature.value
-        var laPineTempFahrenheit = parseFloat(laPineTempCelsius) * 1.8;
-        laPineTempFahrenheit = laPineTempFahrenheit + 32
+        //var laPineTempCelsius = WX.features[0].properties.temperature.value
+        var laPineTempFahrenheit = WX.observations[0].imperial.temp;
+        //laPineTempFahrenheit = laPineTempFahrenheit + 32
         document.getElementById("la-pine").innerHTML = "<strong>La Pine: </strong>"+ parseInt(laPineTempFahrenheit)
       }
       function sunriverWeather(WX){
@@ -111,6 +105,11 @@
           prinevilleWeather(data)
         })
         fetch("https://api.weather.gov/stations/KS33/observations")
+        .then(function(resp) {return resp.json()})
+        .then (function(data) {
+          madrasWeather(data)
+        })
+        fetch(fetch('https://api.weather.com/v2/pws/observations/current?stationId=KORLAPIN72&format=json&units=e&apiKey=be3a60645b954897ba60645b95f89776')
         .then(function(resp) {return resp.json()})
         .then (function(data) {
           madrasWeather(data)
