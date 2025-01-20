@@ -108,7 +108,7 @@
         fetch("https://api.weather.gov/stations/KS39/observations")
         .then(function(resp) {return resp.json()})
         .then (function(data) {
-          redmondWeather(data)
+          prinevilleWeather(data)
         })
       }
       window.onload = function(){
