@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <title>Today's WX Report</title>
   </head>
+  <script>
+    function autoRefresh() {
+                //window.location = window.location.href;
+                getData();
+            }
+            setInterval('autoRefresh()', 120000);
+  </script>
   <body>
     <a href="index.html">Return Home</a>
     <h3>Today's WX Report</h3>
