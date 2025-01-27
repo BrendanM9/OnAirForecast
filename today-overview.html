@@ -113,7 +113,7 @@
         .then (function(data) {
           prinevilleWeather(data)
         })
-        fetch("https://api.weather.gov/stations/KS33/observations")
+        fetch('https://api.weather.com/v2/pws/observations/current?stationId=KORMADRA63&format=json&units=e&apiKey=be3a60645b954897ba60645b95f89776')
         .then(function(resp) {return resp.json()})
         .then (function(data) {
           madrasWeather(data)
