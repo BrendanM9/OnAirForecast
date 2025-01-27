@@ -57,9 +57,9 @@
         document.getElementById("prineville").innerHTML = "<strong>Prineville: </strong>"+ parseInt(prinevilleTempFahrenheit)
       }
       function madrasWeather(WX){
-        var madrasTempCelsius = WX.observations[0].imperial.temp
-        var madrasTempFahrenheit = parseFloat(madrasTempCelsius) * 1.8;
-        madrasTempFahrenheit = madrasTempFahrenheit + 32
+        //var madrasTempCelsius = WX.observations[0].imperial.temp
+        var madrasTempFahrenheit = WX.observations[0].imperial.temp
+        //madrasTempFahrenheit = madrasTempFahrenheit + 32
         document.getElementById("madras").innerHTML = "<strong>Madras: </strong>"+ parseInt(madrasTempFahrenheit)
       }
       
