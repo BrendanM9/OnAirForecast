@@ -42,13 +42,15 @@
           .then (function(data) {
               bendTempFahrenheit = data.observations[0].imperial.temp
               console.log(bendTempFahrenheit)
+              document.getElementById("bend").innerHTML = "<strong>Bend: </strong>"+ parseInt(bendTempFahrenheit)
           })
         } else if (bendTempCelsius !== null){
           bendTempFahrenheit = parseFloat(bendTempCelsius) * 1.8;
           bendTempFahrenheit = bendTempFahrenheit + 32
+          document.getElementById("bend").innerHTML = "<strong>Bend: </strong>"+ parseInt(bendTempFahrenheit)
         }
         console.log(bendTempFahrenheit)
-        document.getElementById("bend").innerHTML = "<strong>Bend: </strong>"+ parseInt(bendTempFahrenheit)
+        //document.getElementById("bend").innerHTML = "<strong>Bend: </strong>"+ parseInt(bendTempFahrenheit)
       }
       function sistersWeather(WX){
         var sistersTempCelsius = WX.features[0].properties.temperature.value
