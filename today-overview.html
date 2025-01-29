@@ -41,7 +41,7 @@
           .then (function(data) {
               var bendTempFahrenheit = data.observations[0].imperial.temp
           })
-        } else {
+        } else if (bendTempCelsius !== null){
           var bendTempFahrenheit = parseFloat(bendTempCelsius) * 1.8;
           bendTempFahrenheit = bendTempFahrenheit + 32
         }
