@@ -34,15 +34,16 @@
     <script>
       function bendWeather(WX){
         var bendTempCelsius = WX.features[0].properties.temperature.value
+        var bendTempFahrenheit;
         console.log(bendTempCelsius)
         if(bendTempCelsius === null){
           fetch('https://api.weather.com/v2/pws/observations/current?stationId=KORBEND727&format=json&units=e&apiKey=be3a60645b954897ba60645b95f89776')
           .then(function(resp) {return resp.json()})
           .then (function(data) {
-              var bendTempFahrenheit = data.observations[0].imperial.temp
+              bendTempFahrenheit = data.observations[0].imperial.temp
           })
         } else if (bendTempCelsius !== null){
-          var bendTempFahrenheit = parseFloat(bendTempCelsius) * 1.8;
+          bendTempFahrenheit = parseFloat(bendTempCelsius) * 1.8;
           bendTempFahrenheit = bendTempFahrenheit + 32
         }
         document.getElementById("bend").innerHTML = "<strong>Bend: </strong>"+ parseInt(bendTempFahrenheit)
