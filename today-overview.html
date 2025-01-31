@@ -14,6 +14,7 @@
   <body>
     <a href="index.html">Return Home</a>
     <h3>Today's WX Report</h3>
+    <div id="alert"></div>
     <div id="today"></div>
     <div id="today2"></div>
     <div id="tomorrow"></div>
@@ -32,6 +33,9 @@
     <br>
     <p><strong>WX:</strong> For weather anytime [including live local radar &amp; an extended forecast] go to my Central Oregon dot com…and make us your homepage today.</p>
     <script>
+      function weatherAlert(alertInfo){
+        document.getElementById("alert").innerHTML = "<strong>ACTIVE WX ALERT:</strong><em>"+alertInfo.features[0].properties.headline+"</em>"
+      }
       function bendWeather(WX){
         var bendTempCelsius = WX.features[0].properties.temperature.value
         var bendTempFahrenheit;
@@ -141,6 +145,11 @@
         .then(function(resp) {return resp.json()})
         .then (function(data) {
           sunriverWeather(data)
+        })
+        fetch('https://api.weather.com/v2/pws/observations/current?stationId='+cityID+'&format=json&units=e&apiKey='+key)
+        .then(function(resp) {return resp.json() })
+        .then(function(data) {
+          weatherAlert(data)
         })
       }
       window.onload = function(){
