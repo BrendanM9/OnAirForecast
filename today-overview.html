@@ -34,7 +34,9 @@
     <p><strong>WX:</strong> For weather anytime [including live local radar &amp; an extended forecast] go to my Central Oregon dot com…and make us your homepage today.</p>
     <script>
       function weatherAlert(alertInfo){
-        document.getElementById("alert").innerHTML = "<strong>ACTIVE WX ALERT:</strong><em>"+alertInfo.features[0].properties.headline+"</em><br><br>"
+        if(alertInfo.features.length > 0){
+          document.getElementById("alert").innerHTML = "<strong>ACTIVE WX ALERT:</strong><em>"+alertInfo.features[0].properties.headline+"</em><br><br>"
+        }
       }
       function bendWeather(WX){
         var bendTempCelsius = WX.features[0].properties.temperature.value
