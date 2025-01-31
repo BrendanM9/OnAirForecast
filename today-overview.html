@@ -146,7 +146,7 @@
         .then (function(data) {
           sunriverWeather(data)
         })
-        fetch('https://api.weather.com/v2/pws/observations/current?stationId='+cityID+'&format=json&units=e&apiKey='+key)
+        fetch('https://api.weather.com/v2/pws/observations/current?stationId=KBDN&format=json&units=e&apiKey='+key)
         .then(function(resp) {return resp.json() })
         .then(function(data) {
           weatherAlert(data)
