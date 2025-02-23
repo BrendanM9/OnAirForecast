@@ -46,6 +46,11 @@
         .catch(function(){
           
         });
+        fetch('https://api.weather.gov/alerts/active?point=44.059221%2C-121.25976&limit=500')
+        .then(function(resp) {return resp.json() })
+        .then(function(data) {
+          weatherAlert(data)
+        })
       }
       window.onload = function(){
         getData();
