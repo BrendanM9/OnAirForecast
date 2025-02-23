@@ -13,6 +13,7 @@
     <a href="index.html">Return Home</a>
     <h3>Tomorrow's WX Report</h3>
     <h2>ALL DAY IDENTIFIERS ARE IN RELATION TO TOMORROW!</h2>
+    <div id="alert"></div>
     <div id="today"></div>
     <div id="today2"></div>
     <div id="tomorrow"></div>
@@ -22,6 +23,11 @@
     <br>
     <p><strong>WX:</strong> For weather anytime [including live local radar &amp; an extended forecast] go to my Central Oregon dot com…and make us your homepage today.</p>
     <script>
+      function weatherAlert(alertInfo){
+        if(alertInfo.features.length > 0){
+          document.getElementById("alert").innerHTML = "<strong>ACTIVE WX ALERT:</strong><em>"+alertInfo.features[0].properties.headline+"</em><br><br>"
+        }
+      }
       function displayData(data){
         console.log(data.properties.periods[0].detailedForecast)
         document.getElementById("today").innerHTML = "<strong>Today </strong>: "+ data.properties.periods[2].detailedForecast
