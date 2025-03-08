@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Day After Tomorrow's WX Report</title>
+  </head>
+  <style>
+    div {
+      font-size: 18pt;
+    }
+  </style>
+  <body>
+    <a href="index.html">Return Home</a>
+    <h3>Day After Tomorrow's WX Report</h3>
+    <h2>ALL DAY IDENTIFIERS ARE IN RELATION TO DAY AFTER TOMORROW!</h2>
+    <div id="alert"></div>
+    <div id="today"></div>
+    <div id="today2"></div>
+    <div id="tomorrow"></div>
+    <div id="tomorrow2"></div>
+    <div id="threeDay"></div>
+    <div id="threeDay2"></div>
+    <br>
+    <p><strong>WX:</strong> For weather anytime [including live local radar &amp; an extended forecast] go to my Central Oregon dot com…and make us your homepage today.</p>
+    <script>
+      function weatherAlert(alertInfo){
+        if(alertInfo.features.length > 0){
+          document.getElementById("alert").innerHTML = "<strong>ACTIVE WX ALERT:</strong><em>"+alertInfo.features[0].properties.headline+"</em><br><br>"
+        }
+      }
+      function displayData(data){
+        console.log(data.properties.periods[0].detailedForecast)
+        document.getElementById("today").innerHTML = "<strong>Today</strong>: "+ data.properties.periods[4].detailedForecast
+        document.getElementById("today2").innerHTML = "<strong>"+data.properties.periods[1].name +"</strong>: "+ data.properties.periods[5].detailedForecast
+        document.getElementById("tomorrow").innerHTML = "<strong>"+data.properties.periods[4].name +" (Tomorrow)" +"</strong>: "+ data.properties.periods[6].detailedForecast
+        document.getElementById("tomorrow2").innerHTML = "<strong>"+data.properties.periods[5].name +" (Tomorrow Night)" +"</strong>: "+ data.properties.periods[7].detailedForecast
+        document.getElementById("threeDay").innerHTML = "<strong>"+data.properties.periods[6].name +"</strong>: "+ data.properties.periods[8].detailedForecast
+        document.getElementById("threeDay2").innerHTML = "<strong>"+data.properties.periods[7].name +"</strong>: "+ data.properties.periods[9].detailedForecast
+      }
+      function getData(){
+        fetch("https://api.weather.gov/gridpoints/PDT/37,41/forecast?units=us")
+        .then(function(resp) {return resp.json()})
+        .then (function(data) {
+            displayData(data);
+        })
+        .catch(function(){
+          
+        });
+        fetch('https://api.weather.gov/alerts/active?point=44.059221%2C-121.25976&limit=500')
+        .then(function(resp) {return resp.json() })
+        .then(function(data) {
+          weatherAlert(data)
+        })
+      }
+      window.onload = function(){
+        getData();
+      }
+    </script>
+  </body>
+</html>
