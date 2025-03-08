@@ -32,10 +32,10 @@
         console.log(data.properties.periods[0].detailedForecast)
         document.getElementById("today").innerHTML = "<strong>Today</strong>: "+ data.properties.periods[4].detailedForecast
         document.getElementById("today2").innerHTML = "<strong>"+data.properties.periods[1].name +"</strong>: "+ data.properties.periods[5].detailedForecast
-        document.getElementById("tomorrow").innerHTML = "<strong>"+data.properties.periods[4].name +" (Tomorrow)" +"</strong>: "+ data.properties.periods[6].detailedForecast
-        document.getElementById("tomorrow2").innerHTML = "<strong>"+data.properties.periods[5].name +" (Tomorrow Night)" +"</strong>: "+ data.properties.periods[7].detailedForecast
-        document.getElementById("threeDay").innerHTML = "<strong>"+data.properties.periods[6].name +"</strong>: "+ data.properties.periods[8].detailedForecast
-        document.getElementById("threeDay2").innerHTML = "<strong>"+data.properties.periods[7].name +"</strong>: "+ data.properties.periods[9].detailedForecast
+        document.getElementById("tomorrow").innerHTML = "<strong>"+data.properties.periods[6].name +" (Tomorrow)" +"</strong>: "+ data.properties.periods[6].detailedForecast
+        document.getElementById("tomorrow2").innerHTML = "<strong>"+data.properties.periods[7].name +" (Tomorrow Night)" +"</strong>: "+ data.properties.periods[7].detailedForecast
+        document.getElementById("threeDay").innerHTML = "<strong>"+data.properties.periods[8].name +"</strong>: "+ data.properties.periods[8].detailedForecast
+        document.getElementById("threeDay2").innerHTML = "<strong>"+data.properties.periods[9].name +"</strong>: "+ data.properties.periods[9].detailedForecast
       }
       function getData(){
         fetch("https://api.weather.gov/gridpoints/PDT/37,41/forecast?units=us")
