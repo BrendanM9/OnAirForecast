@@ -41,6 +41,9 @@
       function weatherAlert(alertInfo){
         if(alertInfo.features.length > 0){
           document.getElementById("alert").innerHTML = "<strong>ACTIVE WX ALERT:</strong><em>"+alertInfo.features[0].properties.headline+"</em><br><br>"
+          if(alertInfo.features.length > 1){
+          document.getElementById("alert").innerHTML = "<strong>ACTIVE WX ALERT:</strong><em>"+alertInfo.features[1].properties.headline+"</em><br><br>"
+        }
         }
       }
       function bendWeather(WX){
