@@ -20,6 +20,7 @@
     <a href="index.html">Return Home</a>
     <h3>Today's WX Report</h3>
     <div id="alert"></div>
+    <div id="alert1"></div>
     <div id="today"></div>
     <div id="today2"></div>
     <div id="tomorrow"></div>
@@ -42,7 +43,7 @@
         if(alertInfo.features.length > 0){
           document.getElementById("alert").innerHTML = "<strong>ACTIVE WX ALERT:</strong><em>"+alertInfo.features[0].properties.headline+"</em><br><br>"
           if(alertInfo.features.length > 1){
-          document.getElementById("alert").innerHTML = "<strong>ACTIVE WX ALERT:</strong><em>"+alertInfo.features[1].properties.headline+"</em><br><br>"
+          document.getElementById("alert1").innerHTML = "<strong>ACTIVE WX ALERT:</strong><em>"+alertInfo.features[1].properties.headline+"</em><br><br>"
         }
         }
       }
